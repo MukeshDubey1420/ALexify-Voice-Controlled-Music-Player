@@ -13,6 +13,13 @@ body {
     font-size: 16px;
 }
 
+.welcome-screen { 
+  background: url(dancing.gif) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 h1 {
     border: 0;
     margin: 0;
@@ -32,7 +39,9 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
+.welcome-screen h1{
+	    font-size: 65px;
+}
 .main {
     width: 100%;
     height: 100%;
