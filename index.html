@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Alexify-Voice-Controlled-Music-Player-App</title>
+	<link rel="shortcut icon" type="image/png" href="titleimg.png" />
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
@@ -11,7 +12,7 @@
 <body>
     <div class="wrapper">
         <section class="welcome-screen">
-            <h1> Welcome to Alexify-Voice-Controlled-Music-Player-App </h1>
+            <h1> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3> Enter Your Name to Access Your Account </h3>
             <div class="input-wrapper">
                 <input type="text" placeholder="Name" id="name-input">
@@ -21,6 +22,7 @@
         <div class="main hidden">
             <header>
                 <div class="right floated user-name"> </div>
+				<p id="demo"></p>
             </header>
             <section class="content">
                 <audio src="song.mp3"></audio>
@@ -57,44 +59,104 @@
     </div>
     <script src="jquery.js">
     </script>
+	<script>
+document.getElementById("demo").innerHTML = new Date().toLocaleDateString("en-EN", {weekday: "long", year: "numeric", month: "short",  
+    day: "numeric", hour: "2-digit", minute: "2-digit"  });
+</script>
     <script>
     $('.welcome-screen button').on('click', function() {
         var name = $('#name-input').val();
         if (name.length > 2) {
             var message = "Welcome, " + name;
+			console.log(message);
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
         } else {
             $('#name-input').addClass('error');
+			 alert ("Please Enter Your Name To Further Access(2 Character atleast required)!!!");
         }
     });
-    $('.play-icon').on('click', function() {
-        var song = document.querySelector('audio');
-        if (song.paused == true) {
-            console.log('Playing');
-            $('.play-icon').removeClass('fa-play').addClass('fa-pause');
-            song.play();
-        } else {
-            console.log('Pausing');
-            $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-            song.pause();
-        }
-    });
-    $('body').on('keypress', function(event) {
-                if (event.keyCode == 32) {
-                    var song = document.querySelector('audio');
-                    if (song.paused == true) {
-                        console.log('Playing');
-                        $('.play-icon').removeClass('fa-play').addClass('fa-pause');
-                        song.play();
-                    } else {
-                        console.log('Pausing');
-                        $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-                        song.pause();
-                    }
-                }
-            });
+
+function toggleSong() {
+  var song = document.querySelector('audio');
+
+  if(song.paused == true) {
+    console.log('Music is Playing');
+    $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+    song.play();
+   }
+   else {
+    console.log('Music is Paused');
+    $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+    song.pause();
+   }
+}
+function fancyTimeFormat(time)
+{   
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = time % 60;
+
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    var ret = "";
+
+    if (hrs > 0) {
+        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
+    }
+
+    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
+    ret += "" + secs;
+    return ret;
+}
+function updateCurrentTime() {
+    //Modify the updateCurrentTime() function like this
+
+    var song = document.querySelector('audio');
+    var currentTime = Math.floor(song.currentTime);
+    currentTime = fancyTimeFormat(currentTime);
+
+    var duration = Math.floor(song.duration);
+    duration = fancyTimeFormat(duration)
+    $('.time-elapsed').text(currentTime);
+    $('.song-duration').text(duration);
+}
+
+
+
+
+
+
+ 
+ $('.play-icon').on('click', function() {
+  toggleSong();
+});
+
+$('body').on('keypress',function(event) {
+  if (event.keyCode == 32 || 80)
+  {
+    toggleSong();
+  }
+}); 
+ 
+ 
+ 
+ 
+ 
+ var songName = 'Tamma Song';
+
+window.onload = function() {
+  $('.song-name').text(songName);
+
+  updateCurrentTime();
+
+  setInterval(function() {
+    updateCurrentTime();
+  },1000);
+}
+ 
+ 
     </script>
 </body>
 
