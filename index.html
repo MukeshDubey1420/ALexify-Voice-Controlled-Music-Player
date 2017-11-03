@@ -12,14 +12,15 @@
 	
 </head>
 
-<body oncontextmenu="return false;">
+<body oncontextmenu="return false;">      // to prevent the Source Code ....
+<!-- <body>   -->
     <div class="wrapper">
         <section class="welcome-screen">
             <h1 style="color:white; background:dodgerblue;opacity:1.4;border-radius:30px;"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3> Enter Your Name to Access Your Account </h3>
             <div class="input-wrapper">
                 <input type="name" id="name-input" placeholder="Enter Your Name"  title="Please Enter valid Name (Name must be of 3 or more char.)" style="border-radius:30px; padding:5px; text-transform:capitalize;" autofocus required pattern="[A-Z a-z]{3,}" >
-           <button style="border-radius:30px; padding:5px;"> Go </button> 
+           <button id="btnSearch" style="border-radius:30px; padding:5px;" onclick="doSomething();"> Go </button> 
             </div>
         </section>
         <div class="main hidden">
