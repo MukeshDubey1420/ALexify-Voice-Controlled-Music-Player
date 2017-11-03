@@ -40,7 +40,29 @@ h1 {
     align-items: center;
 }
 .welcome-screen h1{
-	    font-size: 65px;
+	color:black; 
+	background:dodgerblue;
+	opacity:0.8;
+	border-radius:12px;
+	    font-size: 60px;
+}
+.welcome-screen h3{
+	color:black; 
+	background:dodgerblue;
+	opacity:0.8;
+	border-radius:12px;
+	    font-size: 37px;
+}
+.welcome-screen button{
+border-radius:5px;
+ padding:5px;
+}
+.welcome-screen input{
+	cursor:pointer;
+border-radius:5px;
+ padding:5px; 
+ padding:5px;
+ text-transform:capitalize;
 }
 .error {
     border: 2px solid red;
