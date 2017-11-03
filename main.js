@@ -13,8 +13,35 @@ $('.welcome-screen button').on('click', function() {
   toggleSong();
 });
 
+// Code For Implementing Submit Action By pressing Enter.....
+/*
+$(document).ready(function() {
+
+  $('.welcome-screen').keydown(function(event) {
+    // enter has keyCode = 13, change it if you want to use another button
+    if (event.keyCode == 13) {
+     function() {
+        var name = $('#name-input').val();
+        if (name.length > 3) {
+            var message = "Welcome, " + name;
+			console.log(message);
+            $('.main .user-name').text(message);
+            $('.welcome-screen').addClass('hidden');
+            $('.main').removeClass('hidden');
+			$('.play-icon').on('click', function() {
+  toggleSong();
+}
+    }
+  });
+
+}); */
+
+
+
+
+
 	 $('body').on('keypress',function(event) {
-	  if (event.keyCode == 32 || event.keyCode == 80)
+	  if (event.keyCode == 32 || event.keyCode == 80 || event.keyCode == 112)
 	  {
 		toggleSong();
 	  }
@@ -177,4 +204,26 @@ $('#song6').click(function() {
     updateCurrentTime();
   },1000);
 }
+
+// Disabling Inspect Element Feature ...
+
+
+ document.onkeydown = function(e) {
+    if(e.keyCode == 123) {
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+     return false;
+    }
+    if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+     return false;
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+     return false;
+    }      
+ }
  
