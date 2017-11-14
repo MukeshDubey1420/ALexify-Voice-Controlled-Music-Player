@@ -6,6 +6,8 @@
     <title> Alexify-Voice-Controlled-Music-Player-App</title>
 	<link rel="shortcut icon" type="image/png" href="titleimg.png" />
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="hover.css">
+	<link rel="stylesheet" type="text/css" href="hover-min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	
@@ -20,18 +22,20 @@
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3 class="full animated  fadeInRightBig">  Enter Your Name to Access Your Account  </h3>
             <div class="input-wrapper">
-                <input class="full animated pulse" type="name" id="name-input" placeholder="Your Name"  title="Please Enter valid Name (Name must be of 3 or more char.)" autofocus required pattern="[A-Z a-z]{3,}" >
-           <button class="full animated pulse" id="btnSearch" onclick="doSomething();"> Go </button> 
+                <input class="hvr-outline-out" type="name" id="name-input" placeholder="Your Name" title="Please Enter valid Name (Name must be of 3 or more char.)" autofocus required pattern="[A-Z a-z]{3,}" >
+           <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button> 
             </div>
         </section>
         <div class="main hidden">
-            <header>             
-                <div class="right floated user-name"> </div>
-				<p id="demo"></p>				
+            <header>   
+				
+                <div class="right floated user-name hvr-grow"> </div>
+				<a href="index.html"><button class="backbutton hvr-icon-back" style="cursor:pointer">Go Back </button></a>
+				<p id="demo" class="hvr-grow"></p>
             </header>
             <section class="content">
                 <audio src="song1.mp3"></audio>
-                <div class="list-headers">
+                <div class="list-headers hvr-float-shadow">
         <div> Title </div> 
         <div> Artist </div>
         <div> Album </div>
@@ -39,42 +43,42 @@
         </div>
         <div class="song-list">
 
-        <div id="song1" class="song">
+        <div id="song1" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
 
-        <div id="song2" class="song">
+        <div id="song2" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
 		
-		 <div id="song3" class="song">
+		 <div id="song3" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
 		
-		 <div id="song4" class="song">
+		 <div id="song4" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
 		
-		 <div id="song5" class="song">
+		 <div id="song5" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
 		
-        <div id="song6" class="song">
+        <div id="song6" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
@@ -83,17 +87,17 @@
       </div>
 	  
 	   <div class="current-song-wrapper">
-    <img class="current-song-image">
+    <img class="current-song-image hvr-float-shadow">
     <div>
-      <p class="current-song-name"></p>
-      <p class="current-song-album"></p>
+      <p class="current-song-name hvr-grow"></p>
+      <p class="current-song-album "></p>
     </div>
   </div>
             </section>
             <footer>
                 <div class="controls">
                     <div class="player-buttons">
-                        <i class="fa fa-play clickable play-icon" aria-hidden="true"></i>
+                        <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>
                     </div>
                     <div class="progress-wrapper">
                         <span class="time-elapsed"> </span>

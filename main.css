@@ -119,19 +119,32 @@ border-radius:5px;
     font-size: 1.4rem;
     margin-top: 4px;
     margin-bottom: 0;
+	cursor:pointer;
 }
 
 .current-song-album {
     margin-top: 0.4rem;
+	cursor:pointer;
 }
 .hidden {
     display: none;
 }
 
 .right.floated {
+	font-size:24px;
     float: right;
+	cursor:pointer;
 }
-
+#demo{
+	float:left;
+	font-size:20px;
+	cursor:pointer;
+}
+.backbutton{
+	
+    margin-top: 17px;
+    margin-left: 45px;
+}
 .clickable {
     cursor: pointer;
 }

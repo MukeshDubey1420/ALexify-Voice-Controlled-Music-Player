@@ -43,7 +43,7 @@ function toggleSong() {
 function doSomething() {
         var name = $('#name-input').val();
         if (name.length > 3) {
-            var message = "Welcome, " + name;
+            var message = "WELCOME, " + name.toUpperCase();
 			console.log(message);
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
@@ -137,7 +137,6 @@ function fancyTimeFormat(time)
     return ret;
 }
 function updateCurrentTime() {
-    //Modify the updateCurrentTime() function like this
 
     var song = document.querySelector('audio');
     var currentTime = Math.floor(song.currentTime);
