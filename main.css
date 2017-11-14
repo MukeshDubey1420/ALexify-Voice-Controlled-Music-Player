@@ -100,7 +100,30 @@ border-radius:5px;
     justify-content: center;
     align-items: center;
 }
+.content {
+    position: relative;
+}
+.current-song-wrapper {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+}
 
+.current-song-image {
+    height: 100px;
+    width: 100px;
+    margin-right: 1rem;
+}
+
+.current-song-name {
+    font-size: 1.4rem;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+.current-song-album {
+    margin-top: 0.4rem;
+}
 .hidden {
     display: none;
 }

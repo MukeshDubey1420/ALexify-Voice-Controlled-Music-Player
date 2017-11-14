@@ -25,6 +25,21 @@ $('.welcome-screen button').on('click', function() {
     });
 
 */
+function toggleSong() {
+  var song = document.querySelector('audio');
+
+  if(song.paused == true) {
+    console.log('Music is Playing');
+    $('.play-icon').removeClass('fa-play').addClass('fa-pause');
+    song.play();
+   }
+   else {
+    console.log('Music is Paused');
+    $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+    song.pause();
+   }
+}
+
 function doSomething() {
         var name = $('#name-input').val();
         if (name.length > 3) {
@@ -102,20 +117,7 @@ $(document).ready(function() {
 	*/
 
 
-function toggleSong() {
-  var song = document.querySelector('audio');
 
-  if(song.paused == true) {
-    console.log('Music is Playing');
-    $('.play-icon').removeClass('fa-play').addClass('fa-pause');
-    song.play();
-   }
-   else {
-    console.log('Music is Paused');
-    $('.play-icon').removeClass('fa-pause').addClass('fa-play');
-    song.pause();
-   }
-}
 function fancyTimeFormat(time)
 {   
     // Hours, minutes and seconds
@@ -148,10 +150,30 @@ function updateCurrentTime() {
 }
 
 
+function addSongNameClickEvent(songObj,position) {
+	var songName = songObj.fileName; // New Variable
+    var id = '#song' + position;
+    $(id).click(function() {
+      var audio = document.querySelector('audio');
+      var currentSong = audio.src;
+      if(currentSong.search(songName) != -1)
+      {
+      toggleSong();
+    }
+    else {
+      audio.src = songName;
+        toggleSong();
+        changeCurrentSongDetails(songObj); // Function Call
+    }
+});
+}
 
+/*
+for (var i = 0; i < fileNames.length ; i++) {
+    addSongNameClickEvent(fileNames[i],i+1)
+}
 
-
-
+*/
  
  
 	
@@ -162,21 +184,117 @@ function updateCurrentTime() {
    } 
 });
  */
- 
+ function changeCurrentSongDetails(songObj) {
+  $('.current-song-image').attr('src','img/' + songObj.image) ;
+  $('.current-song-name').text(songObj.name) ;
+  $('.current-song-album').text(songObj.album) ;
+}
+ /*
  var songList = ['3 Peg - Sharry Mann (DjPunjab.Com)','Affair - MC JD (DjPunjab.Com)','Daang Mankirt Aulakh','Set Jatt - Joban Sandhu (DjPunjab.Com)','Chalti Hai Kya 9 Se 12-(Mr-Jatt.com)','Ban Ja Rani Guru Randhawa ' ]; 
 
-var fileNames = ['song1.mp3','song2.mp3',
-      'song3.mp3','song4.mp3','song5.mp3','song6.mp3'];
+var fileNames = ['song1.mp3','song2.mp3','song3.mp3','song4.mp3','song5.mp3','song6.mp3'];
+	  
+var artistList = ['Artist #1', 'Artist #2','Artist #3','Artist #4','Artist #5','Artist #6']; 
+	
+var durationList = ['2:56','3:15','2:34','2:29','2:34','2:29'];	
+
+var albumList = ['Badrinath ki Dulhania','Ok Jaanu','Befikre', 'Ae Dil Hai Mushkil' ,'Befikre', 'Ae Dil Hai Mushkil'];
+*/
+
+var songs = [
+  {
+    'name': '3 Peg - Sharry Mann (DjPunjab.Com)',
+    'artist': 'Sharry Mann',
+    'album': '3 PeG',
+    'duration': '3:24',
+   'fileName': 'song1.mp3',
+   'image': 'song1.jpg'
+  },
+  {
+    'name': 'Affair - MC JD (DjPunjab.Com)',
+    'artist': 'Elly Mangat Ft. MC JD',
+    'album': 'PB 26',
+    'duration': '3:54',
+    'fileName': 'song2.mp3',
+   'image': 'song2.jpg'
+  }
+  ,
+  {
+    'name': 'Daang Mankirt Aulakh',
+    'artist': 'Mankirat Aulakh',
+    'album': 'Daang ',
+    'duration': '3:41',
+    'fileName': 'song3.mp3',
+   'image': 'song3.jpg'
+  }
+  ,
+  {
+    'name': 'Set Jatt - Joban Sandhu (DjPunjab.Com)',
+    'artist': 'Joban Sandhu',
+    'album': 'Set Jatt',
+    'duration': '1:09',
+    'fileName': 'song4.mp3',
+   'image': 'song4.jpg'
+  }
+  ,
+  {
+    'name': 'Chalti Hai Kya 9 Se 12-(Mr-Jatt.com)',
+    'artist': 'Devi Negi Ft. Neha Kakkar',
+    'album': 'Judwaa 2',
+    'duration': '4:35',
+    'fileName': 'song5.mp3',
+   'image': 'song5.jpg'
+  }
+  ,
+  {
+    'name': 'Ban Ja Rani Guru Randhawa ',
+    'artist': 'Guru Randhawa',
+    'album': 'Tumhari Sulu',
+    'duration': '1:33',
+    'fileName': 'song6.mp3',
+   'image': 'song6.jpg'
+  }
+]
+
+
 
 window.onload = function() {
-  $('#song1 .song-name').text(songList[0]);
-  $('#song2 .song-name').text(songList[1]);
-  $('#song3 .song-name').text(songList[2]);
-  $('#song4 .song-name').text(songList[3]);
-  $('#song5 .song-name').text(songList[4]);
-  $('#song6 .song-name').text(songList[5]);
+	changeCurrentSongDetails(songs[0]);
+	/*
+	$('#song1 .song-name').text(songList[0]);
+	$('#song2 .song-name').text(songList[1]);
+	$('#song3 .song-name').text(songList[2]);
+	$('#song4 .song-name').text(songList[3]);
+	$('#song5 .song-name').text(songList[4]);
+	$('#song6 .song-name').text(songList[5]);
+	$('#song1 .song-artist').text(artistList[0]);
+	$('#song2 .song-artist').text(artistList[1]);
+	$('#song3 .song-artist').text(artistList[2]);
+	$('#song4 .song-artist').text(artistList[3]);
+	$('#song5 .song-artist').text(artistList[4]);
+	$('#song6 .song-artist').text(artistList[5]);
 
-$('#song1').click(function() {
+for(var i =0; i < songList.length;i++) {
+    var name = '#song' + (i+1);
+    var song = $(name);
+    song.find('.song-name').text(songList[i]);
+    song.find('.song-artist').text(artistList[i]);
+    song.find('.song-album').text(albumList[i]); // Added
+    song.find('.song-length').text(durationList[i]); // Added
+  }
+ */
+ for(var i =0; i < songs.length;i++) {
+    var obj = songs[i];
+    var name = '#song' + (i+1);
+    var song = $(name);
+    song.find('.song-name').text(obj.name);
+    song.find('.song-artist').text(obj.artist);
+    song.find('.song-album').text(obj.album);
+    song.find('.song-length').text(obj.duration);
+    addSongNameClickEvent(obj,i+1) ;
+  }
+ /* 
+ $('#song1').click(function() {
   var audio = document.querySelector('audio');
   var currentSong = audio.src;
   if(currentSong.search(fileNames[0]) != -1)
@@ -247,7 +365,9 @@ $('#song6').click(function() {
     audio.src = fileNames[5];
     toggleSong();
   }
+  
 });
+*/
   updateCurrentTime();
 
   setInterval(function() {

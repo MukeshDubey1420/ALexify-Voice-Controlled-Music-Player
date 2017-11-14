@@ -8,12 +8,13 @@
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
     <link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
 	
 </head>
-
- <body oncontextmenu="return false;">    <!--   // to prevent the Source Code ....   -->
-<!-- <body>  --> 
+<!--
+ <body oncontextmenu="return false;">      // to prevent the Source Code ....   -->
+ <body>
     <div class="wrapper">
         <section class="welcome-screen">
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
@@ -80,6 +81,14 @@
           <span class="song-length"> </span>
         </div>
       </div>
+	  
+	   <div class="current-song-wrapper">
+    <img class="current-song-image">
+    <div>
+      <p class="current-song-name"></p>
+      <p class="current-song-album"></p>
+    </div>
+  </div>
             </section>
             <footer>
                 <div class="controls">
@@ -93,9 +102,11 @@
                         </div>
                         <span class="song-duration"></span>
                     </div>
-                </div>
+					</div>
+					
+					
             </footer>
-        </div>
+        
     </div>
     <script src="jquery.js">
     </script>
