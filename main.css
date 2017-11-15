@@ -100,6 +100,17 @@ border-radius:5px;
     justify-content: center;
     align-items: center;
 }
+.hidden {
+    display: none;
+}
+
+.right.floated {
+    float: right;
+}
+
+.clickable {
+    cursor: pointer;
+}
 .content {
     position: relative;
 }
@@ -174,7 +185,7 @@ border-radius:5px;
 }
 
 .progress-filled {
-    background-color: #959595;
+    background-color: rgba(185, 186, 216, 0.51);
     height: 8px;
     border-radius: 4px;
     width: 0;
@@ -233,4 +244,12 @@ border-radius:5px;
 
 .song-length {
     text-align: right;
+}
+/*css for play pause and other button*/
+.player-buttons .fa {
+    margin-right: 2rem;
+}
+
+.fa.disabled {
+    color: gray;
 }
