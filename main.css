@@ -13,13 +13,6 @@ body {
     font-size: 16px;
 }
 
-.welcome-screen { 
-  background: url(dancing.gif) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 h1 {
     border: 0;
     margin: 0;
@@ -38,6 +31,12 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	  background: url(img/dancing.gif) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
 }
 .welcome-screen h1{
 	color:black; 
@@ -73,7 +72,12 @@ border-radius:5px;
     display: flex;
     flex-direction: column;
     color: white;
-    background-color: #1f1f1f;
+    
+	  background: url(img/back.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .main header {
@@ -85,7 +89,8 @@ border-radius:5px;
 
 .main .content {
     flex:1;
-    background-color: #1f1f1f;
+    background: transparent;
+    color: antiquewhite;
 }
 
 .main footer {
