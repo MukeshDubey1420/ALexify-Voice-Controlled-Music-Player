@@ -1,3 +1,6 @@
+
+var willmute =1;
+var Playingnumber = 0  ;
 var currentSongNumber = 1;
 var willLoop = 0;
 var willShuffle = 0;
@@ -32,6 +35,33 @@ $('.welcome-screen button').on('click', function() {
     });
 
 */
+
+//to mute the song mute function is there
+
+ function mute(){
+	 var song = document.querySelector('audio');
+	 if(song.muted)
+	 {
+	 song.muted=false;
+	 }
+      else
+	  {
+		  song.muted = true;
+
+		  }
+ }
+
+
+//low-high the sound of song volume function is there
+
+ function setvolume(){
+
+	 var song = document.querySelector('audio');
+	 song.volume= volumeslider.value/100;
+ }
+
+
+
 
 //fuction for Audio Play and Pause..
 function toggleSong() {
@@ -185,17 +215,6 @@ function addSongNameClickEvent(songObj,position) {
 });
 }
 
-// code for looping song
-$('.fa-repeat').on('click',function() {
-    $('.fa-repeat').toggleClass('disabled')
-    willLoop = 1 - willLoop;
-});
-
-//code for suffale songs$('.fa-random').on('click',function() {
-$('.fa-random').on('click',function() {
-    $('.fa-random').toggleClass('disabled')
-    willShuffle = 1 - willShuffle;
-});
 
 
 
@@ -515,9 +534,9 @@ return false;
                   //code for showing the progress of song played
                   function updateTimer(){
                     var song = document.querySelector('audio');
-                    var current = song.currentTime;
-                    var total = song.duration;
-                    var percentage = (current/total)*100;   //cullculatin for curreret percentege
+                    var current_time = song.currentTime;
+                    var total_time = song.duration;
+                    var percentage = (current_time/total_time)*100;   //cullculatin for curreret percentege
                     $('.progress-filled').css('width',percentage+"%");    //by using css width property it show the duration of song played
                     }
 
@@ -531,4 +550,72 @@ return false;
                     var song = document.querySelector('audio');
                     song.currentTime = (song.duration*progress)/100;
                   });
+				  
+				  
+//when the song ended it check for shuffle,loop and random song condition and play the next song
 
+$('audio').on('ended',function() {
+    var audio = document.querySelector('audio');
+    //shuffle
+
+	if (willShuffle == 1) {
+        var nextSongNumber = randomExcluded(1,6,currentSongNumber); // Calling our function from Stackoverflow
+        var nextSongObj = songs[nextSongNumber-1];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber = nextSongNumber;
+    }
+
+
+       //start from second song
+
+    else if(currentSongNumber < 6) {
+        var nextSongObj = songs[currentSongNumber];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber = currentSongNumber + 1;
+    }
+	// loop
+    else if(willLoop == 1) {
+        var nextSongObj = songs[0];
+        audio.src = nextSongObj.fileName;
+        toggleSong();
+        changeCurrentSongDetails(nextSongObj);
+        currentSongNumber =  1;
+    }
+    else {
+        $('.play-icon').removeClass('fa-pause').addClass('fa-play');
+        audio.currentTime = 0;
+    }
+})
+
+// code for looping song
+$('.fa-repeat').on('click',function() {
+    $('.fa-repeat').toggleClass('disabled')
+    willLoop = 1 - willLoop;
+});
+
+//code for suffale songs$('.fa-random').on('click',function() {
+$('.fa-random').on('click',function() {
+    $('.fa-random').toggleClass('disabled')
+    willShuffle = 1 - willShuffle;
+});
+
+// click on mute icon
+
+$('.fa-volume-up ').on('click', function() {
+$('.fa-volume-up ').toggleClass('disabled')
+    willmute = 1 - willmute;
+
+ mute();
+
+    });
+	
+	
+// click on volume icon
+
+$('#volumeslider').on('mousemove',function() {
+    setvolume();
+});

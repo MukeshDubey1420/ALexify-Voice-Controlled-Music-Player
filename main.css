@@ -253,3 +253,11 @@ border-radius:5px;
 .fa.disabled {
     color: gray;
 }
+
+#volumeslider{
+	position:relative;
+	left:-25px;
+	top:8px;
+	width:80px;
+
+}

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title> Alexify-Voice-Controlled-Music-Player-App</title>
 	<link rel="shortcut icon" type="image/png" href="titleimg.png" />
     <link rel="stylesheet" type="text/css" href="font-awesome.css">
@@ -14,10 +15,12 @@
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
 	
 </head>
-<!--
- <body oncontextmenu="return false;">      // to prevent the Source Code ....   -->
- <body>
+ <body oncontextmenu="return false;">      // to prevent the Source Code .... 
+ <!-- <body> -->
     <div class="wrapper">
+	
+	<!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
+	
         <section class="welcome-screen">
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3 class="full animated  fadeInRightBig">  Enter Your Name to Access Your Account  </h3>
@@ -26,6 +29,9 @@
            <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button> 
             </div>
         </section>
+		
+		<!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
+		
         <div class="main hidden">
             <header>   
 				
@@ -34,50 +40,59 @@
 				<p id="demo" class="hvr-grow"></p>
             </header>
             <section class="content">
+			
+			<!------------------------------------------------------------------------------default-audio--------------------------------------------------------------------------------------------------------->
+			
                 <audio src="song1.mp3"></audio>
+				
+				<!----------------------------------------------------------------------------playlist-section----------------------------------------------------------------------------->	
+    
                 <div class="list-headers hvr-float-shadow">
+				
+				<!-----------------------------header------------------>
+				
         <div> Title </div> 
         <div> Artist </div>
         <div> Album </div>
         <div> Duration </div>
         </div>
         <div class="song-list">
-
+ <!------------------------------song1----------------------->
         <div id="song1" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
-
+ <!------------------------------song2----------------------->
         <div id="song2" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
-		
+		 <!------------------------------song3----------------------->
 		 <div id="song3" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
-		
+		 <!------------------------------song4----------------------->
 		 <div id="song4" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
-		
+		 <!------------------------------song5----------------------->
 		 <div id="song5" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
         </div>
-		
+		 <!------------------------------song6----------------------->
         <div id="song6" class="song hvr-grow">
           <span class="song-name"> </span>
           <span class="song-artist"> </span>
@@ -85,7 +100,7 @@
           <span class="song-length"> </span>
         </div>
       </div>
-	  
+	  <!-------------------------------------details of current song playing----------------------------------------------------------------------->
 	   <div class="current-song-wrapper">
     <img class="current-song-image hvr-float-shadow">
     <div>
@@ -94,6 +109,9 @@
     </div>
   </div>
             </section>
+			
+			<!----------------------------------------------------play pause next perivous loop shuffle volume mute button and progress bar---------------------------------->
+			
             <footer>
 			<div class="controls">
               <div class="player-buttons">
@@ -103,7 +121,8 @@
                 <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-step-forward next-icon clickable hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-repeat disabled clickable hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-volume-up disabled clickable hvr-grow-shadow" aria-hidden="true" style="margin-left: 150px"></i>
+                <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" style="margin-left: 150px"></i>
+				<input id="volumeslider" type="range" min="0" max ="100" value="100" step="1" class="volume">
               </div>
                 
                     <div class="progress-wrapper">
@@ -119,6 +138,8 @@
             </footer>
         
     </div>
+	
+	  <!--------------------- external javascript Linking --------------------->
     <script src="jquery.js">
     </script>
 	 <script src="main.js"></script>
