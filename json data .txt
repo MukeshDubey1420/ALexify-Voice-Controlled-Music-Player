@@ -63,4 +63,31 @@
 
 link >>>>https://jsonbin.io/b/5a184cf65b7c7c672ba7c30e
 
+
+
+
+
+var option = response.entities.intent[0].value;
+
+                    switch(option){
+                        
+                        case 'play' : 
+                            var receivedName = '';
+                            
+                            if(response.entities.songName)
+                                receivedName += response.entities.songName[0].value;
+
+                            if(receivedName == 'current' || receivedName.length < 1){
+                                toggleSong();
+                                break;
+                            }
+
+                            console.log(receivedName);  
+                            var regex = new RegExp(receivedName, "gi");
+                            var songName = "";
+
+                            for(var i=0; i<songs.length; i++){
+                                var matched = "";
+                                matched += songs[i].name.match(regex);
+                                console.log("Count " + i + " : " + songs[i].name + " : 
  

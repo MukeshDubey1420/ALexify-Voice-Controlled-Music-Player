@@ -1,3 +1,95 @@
+var recognition = new webkitSpeechRecognition();
+recognition.lang = 'en-US';
+ recognition.continuous = true;
+
+recognition.interimResults = true;
+
+recognition.onstart = function() {
+    console.log('Speech recognition service has started');
+};
+
+  recognition.onerror = function(event) {
+      console.error(event);
+  };
+
+recognition.onspeechend = function() {
+  recognition.stop();
+}
+// The following code is meant to use the Web Speech API.
+$('#soundchk').on('click', function() {
+  // start the speech recognition
+
+recognition.start();
+    
+});
+
+var final_transcript = '';
+
+recognition.onresult = function(event) {
+
+var interim_transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+        // Verify if the recognized text is the last with the isFinal property
+        if (event.results[i].isFinal) {
+            final_transcript += event.results[i][0].transcript;
+        }
+    }
+
+    // Choose which result may be useful for you
+    console.log("Final: ",final_transcript);
+};
+
+
+
+function callWit(final_transcript) {
+       $.ajax({
+        url: 'https://api.wit.ai/message',
+        data: {
+          'q': final_transcript,
+          'access_token' : 'SBPTVHZFD52P2SZSHN4WJITHD4JAWKX5'
+        },
+        dataType: 'jsonp',
+        method: 'GET',
+        success: function(response) {
+            console.log("success!", response);
+            if(response.entities.intent[0].value == 'play') {
+            if(response.entities.hasOwnProperty('search_query')) {
+                  var songName = response.entities.search_query[0].value ;
+                  var matchIndex = 0 ;
+                  for(var i =0; i < songs.length ; i++) {
+                    // Lower case both song names
+                    var isMatch = songs[i].name.toLowerCase().match(songName.toLowerCase()) ;
+                    if(isMatch !== null) {
+                      matchIndex = i ;
+                    }
+                  }
+                  changeCurrentSongDetails(songs[matchIndex]) ;
+                  toggleSong() ;
+                }
+                else {
+            // We need to move this here as the default
+            changeCurrentSongDetails(songs[0]) ;
+            toggleSong() ;
+          }
+
+              }
+             else if (response.entities.intent[0].value == 'pause') {
+                  toggleSong() ;
+                }
+        }
+      });
+  }
+
+
+    recognition.onend = function() {
+        
+        
+      // calling wit
+      callWit(final_transcript) ;
+        console.log('Speech recognition service disconnected');
+        
+    };
+
 
 var willmute =1;
 var Playingnumber = 0  ;
@@ -6,9 +98,17 @@ var willLoop = 0;
 var willShuffle = 0;
 var songNumber=1; //initial song number
 
+$( document ).ready(function() {
+    console.log( "Welcome To Alexify-Voice-Controlled-Music-App" );
+    speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak("Hi,Welcome to Alexify Voice Controlled Music App, Please Enter Your Name to Further Proceed.", function() {
+                   //speaking completed.
+               }, false);
+      });
 
+});
 
-document.getElementById("demo").innerHTML = new Date().toLocaleDateString("en-EN", {weekday: "long", year: "numeric", month: "short",  
+document.getElementById("demo").innerHTML = new Date().toLocaleDateString("en-EN", {weekday: "long", year: "numeric", month: "short",
     day: "numeric", hour: "2-digit", minute: "2-digit"  });
 
 
@@ -26,6 +126,74 @@ document.getElementById("demo").innerHTML = new Date().toLocaleDateString("en-EN
 
 		  }
  }
+
+
+ $('#replace-song').on('click', function (){
+    var songName = $('#song-name-input');
+    var songArtist = $('#song-artist-input');
+    var songAlbum = $('#song-album-input');
+    var songDuration = $('#song-duration-input');
+    var songURL = $('#song-url-input');
+    var songVideo = $('#song-video-input');
+    var songLyrics = $('#song-lyrics-input');
+    var songImage = $('#song-image-input');
+
+    songs[3] = {
+        'name': songName.val(),
+        'artist': songArtist.val(),
+        'album': songAlbum.val(),
+        'duration': songDuration.val(),
+        'fileName': songURL.val(),
+        'videoLink': songVideo.val(),
+        'lyricsLink': songLyrics.val(),
+        'image': songImage.val()
+    };
+
+    songName.val('');
+    songArtist.val('');
+    songAlbum.val('');
+    songDuration.val('');
+    songURL.val('');
+    songVideo.val('');
+    songLyrics.val('');
+    songImage.val('');
+    setupApp();
+
+});
+
+ $('#song1').on('click', toggleSong);
+
+$("#song1").hover(function(){
+    $('.a').removeClass('hidden');
+}, function(){
+    $('.a').addClass('hidden');
+});
+$("#song2").hover(function(){
+    $('.b').removeClass('hidden');
+}, function(){
+    $('.b').addClass('hidden');
+});
+$("#song3").hover(function(){
+    $('.c').removeClass('hidden');
+}, function(){
+    $('.c').addClass('hidden');
+});
+$("#song4").hover(function(){
+    $('.d').removeClass('hidden');
+}, function(){
+    $('.d').addClass('hidden');
+});
+$("#song5").hover(function(){
+    $('.e').removeClass('hidden');
+}, function(){
+    $('.e').addClass('hidden');
+});
+$("#song6").hover(function(){
+    $('.f').removeClass('hidden');
+}, function(){
+    $('.f').addClass('hidden');
+});
+
 
 
 //low-high the sound of song volume function is there
@@ -46,13 +214,23 @@ function toggleSong() {
   if(song.paused == true) {
 	   // code For play The Song
     console.log('Music is Playing');
+	speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak(" Lets Play Music", function() {
+                   //speaking completed.
+               }, false);
+     });
     $('.play-icon').removeClass('fa-play').addClass('fa-pause');
 	song.play();
-    
+
    }
    else {
 	    // code for pause the song
     console.log('Music is Paused');
+	speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak("Music is Paused", function() {
+                   //speaking completed.
+               }, false);
+     });
     $('.play-icon').removeClass('fa-pause').addClass('fa-play');
    	 song.pause();
    }
@@ -155,7 +333,7 @@ $('audio').on('ended',function() {
 
 
 
- 
+
  //function for changing current song details when ever songs chnages
  function changeCurrentSongDetails(songObj) {
   $('.current-song-image').attr('src','' + songObj.image) ;  //code for using jQuery to select the element with class 'current-song-image' and dynamically adding images in the somgs plalyed
@@ -186,7 +364,7 @@ function setupApp() {
     addSongNameClickEvent(obj,i+1) ;
   }
 }
-   
+
 
     // Empty the songs variable
     var songs = [] ;
@@ -203,7 +381,11 @@ function setupApp() {
         },
           error: function (responseData) {
                 alert("Sorry Response From Backend could not be fetched !! Server Connection Issue !! please try again ..");
-                
+                 speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak("Sorry Response From Backend could not be fetched ", function() {
+                   //speaking completed.
+               }, false);
+     });
             }
       }) ;
 
@@ -218,11 +400,17 @@ function doSomething() {
             $('.main .user-name').text(message);
             $('.welcome-screen').addClass('hidden');
             $('.main').removeClass('hidden');
-			  fetchSongs() ;
+			var Salutation="Hello,"+name+",My name is Alexa. Hope You Feel Good.Lets Play Some Music";
+     speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak(Salutation, function() {
+                   //speaking completed.
+               }, false);
+     });
+	  fetchSongs() ;
 			// code for calling the function when .play-icon class button is press
 			$('.play-icon').on('click', function() {
 				toggleSong();
-				
+
 		});
 		//code for Calling the function when the spacebar(32)and P(80) or p(112) is pressed from keyboard
 		$('body').on('keypress',function(event) {
@@ -235,16 +423,21 @@ function doSomething() {
 		else {
             $('#name-input').addClass('error');
 			 alert ("Please Enter Your Name To Further Access (3 Character atleast required) !!!");
+			  speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak("Please Enter Your Name To Further Access. 3 Character atleast required ", function() {
+                   //speaking completed.
+               }, false);
+     });
         }
-		
+
 	}
 
 
 
 			// code for calling the function when .play-icon class button is press
 			$('.play-icon').on('click', function() {
-				
-				
+
+
 		});
 
 
@@ -324,8 +517,8 @@ return false;
                     var song = document.querySelector('audio');
                     song.currentTime = (song.duration*progress)/100;
                   });
-				  
-				  
+
+
 //when the song ended it check for shuffle,loop and random song condition and play the next song
 
 $('audio').on('ended',function() {
@@ -386,13 +579,42 @@ $('.fa-volume-up ').toggleClass('disabled')
  mute();
 
     });
-	
-	
+
+
 // click on volume icon
 
 $('#volumeslider').on('mousemove',function() {
     setvolume();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 $('.play-all').on('click', function(){
@@ -451,7 +673,161 @@ $('.play-all').on('click', function(){
           audio.src = playlist[0];
           audio.play();
 
-          
+
         });
-		
-		*/
+
+
+	 //play all songs
+    var i=1;
+    $('.playall_songs').on('click', function () {
+        var songc = $('audio')[0];
+        if (songc.currentTime === songc.duration) {
+            songc.src = songs[i + 1].fileName;
+            console.log(songsc.src);
+            i++;
+            toggleSong();
+        }
+
+    });
+
+*/
+
+	/*
+
+  $('#start_img').on('click', function () {
+    //  browser start listening to the user
+    recognition.start();
+  }) ;
+
+    var finalText = '' ;
+    recognition.onresult = function(event) {
+      // First declaring a variable which will hold the text.
+
+
+      // text may have multiple words
+      // so there need to iterate over the results
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+
+        // speech recognition makes several guesses
+        // we have to check for the final guess and
+        // get the sentence out of it
+        if (event.results[i].isFinal) {
+          finalText += event.results[i][0].transcript;
+        }
+      }
+
+    };
+
+
+
+    function callWit(text) {
+        $.ajax({
+         url: 'https://api.wit.ai/message',
+         data: {
+           'q': text ,
+           'access_token' : 'SBPTVHZFD52P2SZSHN4WJITHD4JAWKX5'
+         },
+         dataType: 'jsonp',
+         method: 'GET',
+		   success: function(response) {
+		  if(response.entities.intent[0].value == 'play'|| 'Play') {
+			changeCurrentSongDetails(songs[0]) ;
+			toggleSong() ;
+		  } else if (response.entities.intent[0].value == 'pause' || 'Pause') {
+			toggleSong() ;
+		  }
+		}
+
+       });
+   }
+
+
+   recognition.onend = function () {
+      // call wit
+      callWit(finalText) ;
+    }
+
+
+
+    $('#RecordSound').on('click',function(){
+       speechRs.rec_start('en-IN',function(final_transcript ){
+
+           var convertedText=final_transcript;
+           if (convertedText.length >0){
+               speechRs.rec_stop();
+               console.log(convertedText);
+               $.ajax({
+                url: 'https://api.wit.ai/message',
+                data: {
+                'q': convertedText,
+                'access_token' : 'SBPTVHZFD52P2SZSHN4WJITHD4JAWKX5'
+                },
+                dataType: 'jsonp',
+                method: 'GET',
+                success: function(response) {
+                    console.log("success!" , response);
+                    if(response.entities.intent[0].value == 'play') {
+						changeCurrentSongDetails(songs[0]) ;
+                        toggleSong() ;
+                    }
+                    else if (response.entities.intent[0].value == 'pause') {
+                        toggleSong() ;
+                    }
+                }
+               });
+           }
+       })
+
+    });
+
+
+*/
+
+  /*
+
+       speechRs.rec_start('en-IN',function(interim_transcript,final_transcript){
+           var convertedText=interim_transcript+final_transcript;
+           if (convertedText.length >0){
+               speechRs.rec_stop();
+               console.log(convertedText);
+               $.ajax({
+  url: 'https://api.wit.ai/message',
+  data: {
+    'q': convertedText,
+    'access_token' : 'SBPTVHZFD52P2SZSHN4WJITHD4JAWKX5'
+  },
+  dataType: 'jsonp',
+  method: 'GET',
+  success: function(response) {
+      console.log("success!", response);
+      if((response.entities.search_query[0].value == 'romantic')||(response.entities.search_query[0].value == 'romantic song')) {
+        // Change current song to first song
+        romanticMood() ;
+      }
+      else if(response.entities.search_query[0].value == 'english song') {
+        englishMood() ;
+      }
+      else if(response.entities.search_query[0].value == 'indopop song') {
+        indopopMood() ;
+      }
+      else if(response.entities.search_query[0].value == 'old song') {
+        oldgoldMood() ;
+      }
+      else if(response.entities.search_query[0].value == 'mashup song') {
+        mashupMood() ;
+      }
+      else if(response.entities.search_query[0].value == 'party song') {
+        partyMood() ;
+      }
+  }
+});
+           }
+       }) ;
+
+}
+else{
+alert('Enter valid Username and Password.');
+}
+
+});
+*/

@@ -16,49 +16,49 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
-	
+
 </head>
 <!--
  <body oncontextmenu="return false;">      // to prevent the Source Code ....   -->
  <body>
     <div class="wrapper">
-	
+
 	<!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
-	
+
         <section class="welcome-screen">
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3 class="full animated  fadeInRightBig">  Enter Your Name to Access Your Account  </h3>
             <div class="input-wrapper">
                 <input class="hvr-outline-out" type="name" id="name-input" placeholder="Your Name" title="Please Enter valid Name (Name must be of 3 or more char.)" autofocus required pattern="[A-Z a-z]{3,}" >
-           <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button> 
+           <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button>
             </div>
         </section>
-		
+
 		<!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
-		
+
         <div class="main hidden">
-            <header>   
-				
+            <header>
+
                 <div class="right floated user-name hvr-grow"> </div>
-				<a href="index.html"><button class="backbutton hvr-icon-back" style="cursor:pointer">Go Back </button></a>
+				<a href="index.html"><button class="backbutton fa fa-sign-out hvr-icon-back" style="cursor:pointer">Go Back </button></a>
 				<p id="demo" class="hvr-grow"></p>
             </header>
             <section class="content">
-			
+
 			<!------------------------------------------------------------------------------default-audio--------------------------------------------------------------------------------------------------------->
-			
+
                 <audio src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
-				
-				<div class="total-songs hvr-float-shadow"></div>   
-				
-				<!----------------------------------------------------------------------------playlist-section----------------------------------------------------------------------------->	
-    
+
+				<div class="total-songs hvr-float-shadow"></div>
+
+				<!----------------------------------------------------------------------------playlist-section----------------------------------------------------------------------------->
+
                 <div class="list-headers hvr-float-shadow">
-				
+
 				<!-----------------------------header------------------>
-				
-        <div> Title </div> 
-        <div> Artist </div>
+
+        <div> Title </div>
+        <div > Artist </div>
         <div> Album </div>
         <div> Duration </div>
         </div>
@@ -69,6 +69,8 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden a"></span>
+                    <span class="song-video hidden a"></span>
         </div>
  <!------------------------------song2----------------------->
         <div id="song2" class="song hvr-grow">
@@ -76,6 +78,8 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden b"></span>
+                    <span class="song-video hidden b"></span>
         </div>
 		 <!------------------------------song3----------------------->
 		 <div id="song3" class="song hvr-grow">
@@ -83,6 +87,8 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden c"></span>
+                    <span class="song-video hidden c"></span>
         </div>
 		 <!------------------------------song4----------------------->
 		 <div id="song4" class="song hvr-grow">
@@ -90,6 +96,8 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden d"></span>
+                    <span class="song-video hidden d"></span>
         </div>
 		 <!------------------------------song5----------------------->
 		 <div id="song5" class="song hvr-grow">
@@ -97,6 +105,8 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden e"></span>
+                    <span class="song-video hidden e"></span>
         </div>
 		 <!------------------------------song6----------------------->
         <div id="song6" class="song hvr-grow">
@@ -104,16 +114,51 @@
           <span class="song-artist"> </span>
           <span class="song-album"> </span>
           <span class="song-length"> </span>
+		  <span class="song-lyrics hidden f"></span>
+                    <span class="song-video hidden f"></span>
         </div>
       </div>
-	  
+
 	  <div>
                 <audio id="all" src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
                 <span>Play All: </span>
-                <i class="fa fa-play clickable play-all hvr-grow" aria-hidden="true"></i>
+                <i class="fa fa-play clickable playall_songs hvr-grow" aria-hidden="true"></i>
         </div>
-	  
-	  
+
+
+	  <!--
+	   <div id="submit-song" class="right floated">
+                <span class="larger">Replace Song</span>
+                <div class="input-container">
+                    <input type="text" id="song-name-input" placeholder="Song Name">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-artist-input" placeholder="Song Artist">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-album-input" placeholder="Song Album">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-duration-input" placeholder="Song Duration">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-url-input" placeholder="Song URL">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-video-input" placeholder="Song Video URL">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-lyrics-input" placeholder="Song Lyrics URL">
+                </div>
+                <div class="input-container">
+                    <input type="text" id="song-image-input" placeholder="Song Image URL">
+                </div>
+                <div class="input-container button">
+                    <button id="replace-song">Replace Song</button>
+                </div>
+            </div>
+	 ---->
+
 	  <!-------------------------------------details of current song playing----------------------------------------------------------------------->
 	   <div class="current-song-wrapper">
     <img class="current-song-image hvr-float-shadow">
@@ -123,9 +168,9 @@
     </div>
   </div>
             </section>
-			
+
 			<!----------------------------------------------------play pause next perivous loop shuffle volume mute button and progress bar---------------------------------->
-			
+
             <footer>
 			<div class="controls">
               <div class="player-buttons">
@@ -137,8 +182,9 @@
                 <i class="fa fa-repeat disabled clickable hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" style="margin-left: 150px"></i>
 				<input id="volumeslider" type="range" min="0" max ="100" value="100" step="1" class="volume">
+				 <i class="fa fa-microphone playericon side-controls animated rotateIn"id="soundchk" aria-hidden="true"></i>
               </div>
-                
+
                     <div class="progress-wrapper">
                         <span class="time-elapsed"> </span>
                         <div class="player-progress">
@@ -147,16 +193,19 @@
                         <span class="song-duration"></span>
                     </div>
 					</div>
-					
-					
+
+
             </footer>
-        
+
     </div>
-	
+
 	  <!--------------------- external javascript linking --------------------->
     <script src="jquery.js">
     </script>
 	 <script src="main.js"></script>
+	 	 <script src="rs.speech.js"></script>
+
+
 </body>
 
 </html>

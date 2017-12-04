@@ -31,7 +31,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	  background: url(img/dancing.gif) no-repeat center center fixed; 
+	  background: url(img/dancing.gif) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -39,14 +39,14 @@ h1 {
   position: absolute;
 }
 .welcome-screen h1{
-	color:black; 
+	color:black;
 	background:dodgerblue;
 	opacity:0.8;
 	border-radius:12px;
 	    font-size: 60px;
 }
 .welcome-screen h3{
-	color:black; 
+	color:black;
 	background:dodgerblue;
 	opacity:0.8;
 	border-radius:12px;
@@ -59,7 +59,7 @@ border-radius:5px;
 .welcome-screen input{
 	cursor:pointer;
 border-radius:5px;
- padding:5px; 
+ padding:5px;
  padding:5px;
  text-transform:capitalize;
 }
@@ -72,8 +72,8 @@ border-radius:5px;
     display: flex;
     flex-direction: column;
     color: white;
-    
-	  background: url(img/back.jpg) no-repeat center center fixed; 
+
+	  background: url(img/back.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -85,6 +85,7 @@ border-radius:5px;
     background-color: #282828;
     padding: 1rem;
     color: #FFF;
+
 }
 
 .main .content {
@@ -106,9 +107,8 @@ border-radius:5px;
     align-items: center;
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
-
 .right.floated {
     float: right;
 }
@@ -157,7 +157,7 @@ border-radius:5px;
 	cursor:pointer;
 }
 .backbutton{
-	
+
     margin-top: 17px;
     margin-left: 45px;
 }
@@ -205,10 +205,11 @@ border-radius:5px;
 .list-headers {
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.5);
+	cursor:pointer;
 }
 
 .list-headers > div {
-    width: 150px;
+    width: 100px;
     display: inline-block;
 }
 
@@ -216,9 +217,7 @@ border-radius:5px;
     width: 330px;
 }
 
-.list-headers > div:last-child {
-    text-align: right;
-}
+
 
 .song-list .song {
     padding-top: 0.5rem;
@@ -230,19 +229,25 @@ border-radius:5px;
 
 .song > span {
     display: inline-block;
-    width: 150px;
+    width: 100px;
     overflow: hidden;
     height: 1rem;
 }
 .song > span:first-child {
     width: 330px;
+	padding-left: 0;
+
+}
+.song > span:last-child {
+    width: 300px;
+}
+.song > div:nth-last-child(7)-child{
+    width: 100px;
+    text-align: center;
 }
 
-.song .song-duration {
-    text-align: right;
-}
 
-.song-list .song:hover {
+.song-list .song:hover :focus {
     background-color: #282828;
 }
 
@@ -366,4 +371,42 @@ input[type=range]:focus::-ms-fill-upper {
     margin-bottom: 18px;
 	font-size:20px;
 	cursor:pointer;
+}
+.input-container{
+
+    margin: 4px 0;
+
+    height: 28px;
+}
+.input-container > input{
+    width: 200px;
+    border-radius: 2px;
+}
+.song-list .song:hover {
+    background-color: #282828;
+}
+.song-length {
+    text-align: left;
+}
+.song-name , .song-artist , .song-lyrics, .song-album, .song-length, .song-video, .song-duration {
+    text-align: left;
+    height: 18px !important;
+}
+.song-video {
+    text-align: left;
+    width: 150px !important;
+}
+.song-lyrics{
+    text-align: left;
+    margin-left: 0 !important;
+}
+.song a{
+    text-align: left;
+    display: inline-block;
+    width: 150px;
+    overflow: hidden;
+    height: 1rem;
+    color: #F1F1F1;
+    text-decoration: none;
+    height: 18px !important;
 }
