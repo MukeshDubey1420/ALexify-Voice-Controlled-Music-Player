@@ -81,7 +81,7 @@ border-radius:5px;
 }
 
 .main header {
-    height: 80px;
+    height: 70px;
     background-color: #282828;
     padding: 1rem;
     color: #FFF;
@@ -158,8 +158,8 @@ border-radius:5px;
 }
 .backbutton{
 
-    margin-top: 17px;
-    margin-left: 45px;
+margin-top: -30px;
+    margin-left: 19px;
 }
 .clickable {
     cursor: pointer;
@@ -437,11 +437,13 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
     margin: 2rem auto;
 }
-
+/*
+    
   img, iframe, object, embed, video {
     width: 100%;
     max-width: 100%;
-} 
+}
+  */
     .welcome-screen h1 {
     color: black;
     background: dodgerblue;
@@ -464,7 +466,9 @@ input[type=range]:focus::-ms-fill-upper {
     top: 8px;
     width: 67px;
 }  
-    
+    #soundchk {
+        margin: auto;
+    } 
     
     .right.floated {
     font-size: 12px;
@@ -501,10 +505,9 @@ input[type=range]:focus::-ms-fill-upper {
     
 
     .backbutton {
-    margin-top: 0px;
-    margin-left: 0;
-}
-    
+margin-top: -100px;
+    margin-left: -15px;
+}  
     #demo {
     float: left;
     font-size: 10px;

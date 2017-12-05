@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="It is a web Application that can play songs!.It has various functionalities that you find in modern music apps and listen to a lot of songs!. It is a Voice Controlled Music Application.">
     <meta name="author" content="Mukesh Dubey">
 	<meta name="keywords" content="Alexify-Voice-Controlled-Music-Player-App,Songify,Songligy,Songify Music app,Music,Music-Player-App,3 pegg,Affair,Daang,Chalti hai kya 9 se 12,Set jatt,Banja tu rani,play,pause">
@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="hover.css">
 	<link rel="stylesheet" type="text/css" href="hover-min.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
 
@@ -25,7 +26,7 @@
 
 	<!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
 
-        <section class="welcome-screen">
+        <section class="w3-container welcome-screen">
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3 class="full animated  fadeInRightBig">  Enter Your Name to Access Your Account  </h3>
             <div class="input-wrapper">
@@ -36,11 +37,12 @@
 
 		<!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
 
-        <div class="main hidden">
+        <div class="w3-container main hidden">
             <header>
 
                 <div class="right floated user-name hvr-grow"> </div>
 				<a href="index.html"><button class="backbutton fa fa-sign-out hvr-icon-back" style="cursor:pointer">Go Back </button></a>
+                <img id="soundchk" class="animated rotateIn" src="https://i.imgur.com/OkUqDXe.gif"/ title="Click Here to Give Command.." style="color: whitesmoke;">
 				<p id="demo" class="hvr-grow"></p>
             </header>
             <section class="content">
@@ -160,7 +162,7 @@
 	 ---->
 
 	  <!-------------------------------------details of current song playing----------------------------------------------------------------------->
-	   <div class="current-song-wrapper">
+	   <div class="w3-container current-song-wrapper">
     <img class="current-song-image hvr-float-shadow">
     <div>
       <p class="current-song-name hvr-grow"></p>
@@ -172,7 +174,7 @@
 			<!----------------------------------------------------play pause next perivous loop shuffle volume mute button and progress bar---------------------------------->
 
             <footer>
-			<div class="controls">
+			<div class="w3-container controls">
               <div class="player-buttons">
                 <i class="fa fa-download disabled clickable hvr-grow-shadow" aria-hidden="true" style="margin-right: 150px"></i>
                 <i class="fa fa-random clickable disabled hvr-grow-shadow" aria-hidden="true"></i>
@@ -180,9 +182,9 @@
                 <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-step-forward next-icon clickable hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-repeat disabled clickable hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" style="margin-left: 150px"></i>
+                <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" ></i>
 				<input id="volumeslider" type="range" min="0" max ="100" value="100" step="1" class="volume">
-				 <i class="fa fa-microphone playericon side-controls animated rotateIn"id="soundchk" aria-hidden="true"></i>
+				 
               </div>
 
                     <div class="progress-wrapper">
