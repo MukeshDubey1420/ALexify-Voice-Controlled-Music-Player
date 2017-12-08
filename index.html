@@ -16,6 +16,13 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
 
 </head>
@@ -123,14 +130,31 @@
 
 	  <div>
                 <audio id="all" src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
-                <span>Play All: </span>
+                <span class="mk">Play All: </span>
                 <i class="fa fa-play clickable playall_songs hvr-grow" aria-hidden="true"></i>
         </div>
 
 
-	  <!--
-	   <div id="submit-song" class="right floated">
-                <span class="larger">Replace Song</span>
+	  
+	 
+<div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Replace Song</h4>
+        </div>
+        <div class="modal-body">
+          
+            <div id="submit-song" class="right floated">
                 <div class="input-container">
                     <input type="text" id="song-name-input" placeholder="Song Name">
                 </div>
@@ -155,11 +179,20 @@
                 <div class="input-container">
                     <input type="text" id="song-image-input" placeholder="Song Image URL">
                 </div>
-                <div class="input-container button">
-                    <button id="replace-song">Replace Song</button>
-                </div>
+                
             </div>
-	 ---->
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="replace-song" class="btn btn-default" data-dismiss="modal">Replace Song</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+	
 
 	  <!-------------------------------------details of current song playing----------------------------------------------------------------------->
 	   <div class="w3-container current-song-wrapper">
@@ -176,7 +209,6 @@
             <footer>
 			<div class="w3-container controls">
               <div class="player-buttons">
-                <i class="fa fa-download disabled clickable hvr-grow-shadow" aria-hidden="true" style="margin-right: 150px"></i>
                 <i class="fa fa-random clickable disabled hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-step-backward back-icon clickable  hvr-grow-shadow" aria-hidden="true"></i>
                 <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>

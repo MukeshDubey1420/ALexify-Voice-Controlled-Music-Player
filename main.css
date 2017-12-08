@@ -39,6 +39,7 @@ h1 {
   position: absolute;
 }
 .welcome-screen h1{
+    font-family: 'Bree Serif', serif;
 	color:black;
 	background:dodgerblue;
 	opacity:0.8;
@@ -46,6 +47,7 @@ h1 {
 	    font-size: 60px;
 }
 .welcome-screen h3{
+    font-family: 'Bree Serif', serif;
 	color:black;
 	background:dodgerblue;
 	opacity:0.8;
@@ -102,7 +104,7 @@ border-radius:5px;
 
 .player-buttons {
     display:flex;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     justify-content: center;
     align-items: center;
 }
@@ -132,17 +134,20 @@ border-radius:5px;
 }
 
 .current-song-name {
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     margin-top: 4px;
     margin-bottom: 0;
 	cursor:pointer;
     color: yellow;
+    font-family: 'Merienda', cursive;
 }
 
 .current-song-album {
+    font-size: 16px;
     margin-top: 0.4rem;
 	cursor:pointer;
     color: yellow;
+    font-family: 'Merienda', cursive;
 }
 .hidden {
     display: none;
@@ -153,12 +158,14 @@ border-radius:5px;
     float: right;
 	cursor:pointer;
         color: tomato;
+    font-family: 'Merienda', cursive;
 }
 #demo{
 	float:left;
 	font-size:20px;
 	cursor:pointer;
         color: tomato;
+    font-family: 'Merienda', cursive;
 }
 .backbutton{
 
@@ -211,6 +218,8 @@ margin-top: -30px;
     border-bottom: 1px solid rgba(255,255,255,0.5);
 	cursor:pointer;
     color: tomato;
+font-family: 'Rancho', cursive;
+        font-size: 20px;
 }
 
 .list-headers > div {
@@ -231,6 +240,8 @@ margin-top: -30px;
     min-height: 30px;
     cursor: pointer;
         color: turquoise;
+        font-size: 18px;
+    font-family: 'Rancho', cursive;
 }
 
 .song > span {
@@ -272,7 +283,7 @@ margin-top: -30px;
 
 #volumeslider{
 	position:relative;
-	left:-25px;
+	left:-14px;
 	top:8px;
 	width:80px;
 
@@ -387,7 +398,7 @@ input[type=range]:focus::-ms-fill-upper {
     height: 28px;
 }
 .input-container > input{
-    width: 200px;
+    width: 100%;
     border-radius: 2px;
 }
 .song-list .song:hover {
@@ -419,7 +430,26 @@ input[type=range]:focus::-ms-fill-upper {
     height: 18px !important;
 }
 
-
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: black;
+    font-size: 20px;
+}
+#replace-song {
+    color: #333;
+    background-color: #0ed9fa;
+    border-color: #ccc;
+}
+.modal-footer {
+    padding: 15px;
+    /* text-align: right; */
+    /* border-top: 1px solid #e5e5e5; */
+}
+.mk {
+    color: blue;
+    font-size: 18px;
+}
 
 /* Media Queries */
 
@@ -470,7 +500,7 @@ input[type=range]:focus::-ms-fill-upper {
     
   #volumeslider {
     position: relative;
-    left: -31px;
+    left: -9px;
     top: 8px;
     width: 67px;
 }  
