@@ -26,7 +26,9 @@
 	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
 
 </head>
- <body oncontextmenu="return false;">      // to prevent the Source Code ....
+ <body oncontextmenu="return false;">   
+     <div id="loading">
+   </div>
     <div class="wrapper">
 
 	<!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
@@ -43,6 +45,7 @@
 		<!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
 
         <div class="w3-container main hidden">
+            
             <header>
 
                 <div class="right floated user-name hvr-grow"> </div>
@@ -236,6 +239,12 @@
     </script>
 	 <script src="main.js"></script>
 	 	 <script src="rs.speech.js"></script>
+        
+        <script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery('#loading').fadeOut(3400);
+});
+</script>
 
 
 </body>

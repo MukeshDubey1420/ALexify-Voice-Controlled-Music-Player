@@ -451,6 +451,23 @@ input[type=range]:focus::-ms-fill-upper {
     font-size: 18px;
 }
 
+#loading {
+     width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("img/giphy.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
+
+
+
+
+
+
+
+
+
 /* Media Queries */
 
 /* For example, older phones */
