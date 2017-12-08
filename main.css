@@ -136,11 +136,13 @@ border-radius:5px;
     margin-top: 4px;
     margin-bottom: 0;
 	cursor:pointer;
+    color: yellow;
 }
 
 .current-song-album {
     margin-top: 0.4rem;
 	cursor:pointer;
+    color: yellow;
 }
 .hidden {
     display: none;
@@ -150,11 +152,13 @@ border-radius:5px;
 	font-size:24px;
     float: right;
 	cursor:pointer;
+        color: tomato;
 }
 #demo{
 	float:left;
 	font-size:20px;
 	cursor:pointer;
+        color: tomato;
 }
 .backbutton{
 
@@ -206,6 +210,7 @@ margin-top: -30px;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.5);
 	cursor:pointer;
+    color: tomato;
 }
 
 .list-headers > div {
@@ -225,6 +230,7 @@ margin-top: -30px;
     border-bottom: 1px solid rgba(255,255,255,0.5);
     min-height: 30px;
     cursor: pointer;
+        color: turquoise;
 }
 
 .song > span {
@@ -371,6 +377,8 @@ input[type=range]:focus::-ms-fill-upper {
     margin-bottom: 18px;
 	font-size:20px;
 	cursor:pointer;
+        color: yellow;
+
 }
 .input-container{
 
