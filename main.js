@@ -441,22 +441,6 @@ function doSomething() {
 
 
 
-			// code for calling the function when .play-icon class button is press
-			$('.play-icon').on('click', function() {
-
-
-		});
-
-
-
-
-
-
-
-
-
-
-
 document.onkeydown = function(e) {
 if(event.keyCode == 123) {
 return false;
