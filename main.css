@@ -40,23 +40,21 @@ h1 {
 }
 .welcome-screen h1{
     font-family: 'Bree Serif', serif;
-	color:black;
-	background:dodgerblue;
-	opacity:0.8;
-	border-radius:12px;
-	    font-size: 60px;
+	color:white;
+	
+	
+	    font-size: 75px;
 }
 .welcome-screen h3{
     font-family: 'Bree Serif', serif;
-	color:black;
-	background:dodgerblue;
-	opacity:0.8;
-	border-radius:12px;
-	    font-size: 37px;
+	color:whitesmoke;
+	
+	    font-size: 50px;
 }
 .welcome-screen button{
 border-radius:5px;
  padding:5px;
+    background-color: aqua;
 }
 .welcome-screen input{
 	cursor:pointer;
@@ -167,11 +165,7 @@ border-radius:5px;
         color: tomato;
     font-family: 'Merienda', cursive;
 }
-.backbutton{
 
-margin-top: -30px;
-    margin-left: 19px;
-}
 .clickable {
     cursor: pointer;
 }
@@ -456,10 +450,20 @@ input[type=range]:focus::-ms-fill-upper {
     height:100%;
     position:fixed;
     z-index:9999;
-    background:url("img/giphy.gif") no-repeat center center rgba(0,0,0,0.25)
+    background:url("img/Loading.gif") no-repeat center center rgba(0,0,0,0.25)
 }
-
-
+    #soundchk {
+        margin: auto;
+        cursor: pointer;
+            width: 39px;
+    padding: 2px;
+    } 
+    
+.backbutton{
+    cursor: pointer;
+    background-color: aqua;
+    
+}
 
 
 
@@ -492,26 +496,13 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
     margin: 2rem auto;
 }
-/*
-    
-  img, iframe, object, embed, video {
-    width: 100%;
-    max-width: 100%;
-}
-  */
     .welcome-screen h1 {
-    color: black;
-    background: dodgerblue;
-    opacity: 0.8;
-    border-radius: 12px;
+    color: white;
     font-size: 20px;
 }
     
     .welcome-screen h3 {
-    color: black;
-    background: dodgerblue;
-    opacity: 0.8;
-    border-radius: 22px;
+    color: whitesmoke;
     font-size: 18px;
 }
     
@@ -523,10 +514,12 @@ input[type=range]:focus::-ms-fill-upper {
 }  
     #soundchk {
         margin: auto;
+        font-size: 18px;
+        cursor: pointer;
     } 
     
     .right.floated {
-    font-size: 12px;
+    font-size: 10px;
     float: right;
     cursor: pointer;
 }
@@ -558,10 +551,18 @@ input[type=range]:focus::-ms-fill-upper {
     width: 100%;
 }
     
+    #demo {
+    float: left;
+    font-size: 11px;
+    cursor: pointer;
+    color: tomato;
+    font-family: 'Merienda', cursive;
+}
 
     .backbutton {
 margin-top: -100px;
     margin-left: -15px;
+        background-color: aqua;
 }  
     #demo {
     float: left;
@@ -573,9 +574,6 @@ margin-top: -100px;
 }
     
     
-    .fa-microphone:{
-    margin-left: 0;
-}
     
     
     

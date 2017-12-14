@@ -101,7 +101,7 @@ var songNumber=1; //initial song number
 $( document ).ready(function() {
     console.log( "Welcome To Alexify-Voice-Controlled-Music-App" );
     speechRs.speechinit('Google हिन्दी',function(e){
-	        speechRs.speak("Hi,Welcome to Alexify Voice Controlled Music App, Please Enter Your Name to Further Proceed.", function() {
+	        speechRs.speak("Hello,  User,   I'm Mukesh    ,Welcome to Alexify Voice Controlled Music App, Please Enter Your Name to Further Proceed.", function() {
                    //speaking completed.
                }, false);
       });
