@@ -10,6 +10,12 @@ recognition.onstart = function() {
 
   recognition.onerror = function(event) {
       console.error(event);
+      alert("Can not Recognise Your Command please try Again")
+       speechRs.speechinit('Google हिन्दी',function(e){
+	        speechRs.speak("Sorry, i can not recognise your command. please try again", function() {
+                   //speaking completed.
+               }, false);
+      });
   };
 
 recognition.onspeechend = function() {
