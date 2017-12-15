@@ -1,226 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="It is a web Application that can play songs!.It has various functionalities that you find in modern music apps and listen to a lot of songs!. It is a Voice Controlled Music Application.">
-    <meta name="author" content="Mukesh Dubey">
-	<meta name="keywords" content="Alexify-Voice-Controlled-Music-Player-App,Songify,Songligy,Songify Music app,Music,Music-Player-App,3 pegg,Affair,Daang,Chalti hai kya 9 se 12,Set jatt,Banja tu rani,play,pause">
-    <title> Alexify-Voice-Controlled-Music-Player-App</title>
-	<link rel="shortcut icon" type="image/png" href="img/titleimg.png" />
-    <link rel="stylesheet" type="text/css" href="font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="hover.css">
-	<link rel="stylesheet" type="text/css" href="hover-min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
-    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/c2854c2e83.js"></script>
-
-</head>
- <body oncontextmenu="return false;">   
-     <div id="loading">
-   </div>
-    <div class="wrapper">
-
-	<!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="It is a web Application that can play songs!.It has various functionalities that you find in modern music apps and listen to a lot of songs!. It is a Voice Controlled Music Application.">
+        <meta name="author" content="Mukesh Dubey">
+        <meta name="keywords" content="Alexify-Voice-Controlled-Music-Player-App,Songify,Songligy,Songify Music app,Music,Music-Player-App,3 pegg,Affair,Daang,Chalti hai kya 9 se 12,Set jatt,Banja tu rani,play,pause">
+        <title> Alexify-Voice-Controlled-Music-Player-App</title>
+        <link rel="shortcut icon" type="image/png" href="img/titleimg.png" />
+        <link rel="stylesheet" type="text/css" href="font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="hover.css">
+        <link rel="stylesheet" type="text/css" href="hover-min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rancho" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/c2854c2e83.js"></script>
+    </head>
+    <body oncontextmenu="return false;">
+        <div id="loading">
+        </div>
+        <div class="wrapper">
+        <!----------------------------------------------------------------------------welcome-screen-------------------------------------------------------------------------->
         <section class="w3-container welcome-screen">
             <h1 class="full animated fadeInLeftBig"> Welcome To Alexify-Voice-Controlled-Music-Player-App </h1>
             <h3 class="full animated  fadeInRightBig">  Enter Your Name to Access Your Account  </h3>
             <div class="input-wrapper">
                 <input class="hvr-outline-out" type="name" id="name-input" placeholder="Your Name" title="Please Enter valid Name (Name must be of 3 or more char.)" autofocus required pattern="[A-Z a-z]{3,}" >
-           <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button>
+                <button class="hvr-pulse" id="btnSearch" style="cursor:pointer" onclick="doSomething();"> Go </button>
             </div>
         </section>
-
-		<!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
-
+        <!---------------------------------------------------------------------------------main-page of playlist-------------------------------------------------------------->
         <div class="w3-container main hidden">
-            
             <header>
-
                 <div class="right floated user-name hvr-grow"> </div>
-				<a href="index.html"><button class="backbutton fa fa-sign-out hvr-icon-back">Go Back </button></a>
-                
+                <a href="index.html"><button class="backbutton fa fa-sign-out hvr-icon-back">Go Back </button></a>
                 <img id="soundchk" class="animated rotateIn hvr-pop" src="img/mike.png"/ title="Click Here to Give Command.Or Press R to Record Your Command.">
-				<p id="demo" class="hvr-grow"></p>
+                <p id="demo" class="hvr-grow"></p>
             </header>
             <section class="content">
-
-			<!------------------------------------------------------------------------------default-audio--------------------------------------------------------------------------------------------------------->
-
+                <!------------------------------------------------------------------------------default-audio--------------------------------------------------------------------------------------------------------->
                 <audio src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
-
-				<div class="total-songs hvr-float-shadow"></div>
-
-				<!----------------------------------------------------------------------------playlist-section----------------------------------------------------------------------------->
-
+                <div class="total-songs hvr-float-shadow"></div>
+                <!----------------------------------------------------------------------------playlist-section----------------------------------------------------------------------------->
                 <div class="list-headers hvr-float-shadow">
-
-				<!-----------------------------header------------------>
-
-        <div> Title </div>
-        <div > Artist </div>
-        <div> Album </div>
-        <div> Duration </div>
-        </div>
-        <div class="song-list">
- <!------------------------------song1----------------------->
-        <div id="song1" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden a"></span>
-                    <span class="song-video hidden a"></span>
-        </div>
- <!------------------------------song2----------------------->
-        <div id="song2" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden b"></span>
-                    <span class="song-video hidden b"></span>
-        </div>
-		 <!------------------------------song3----------------------->
-		 <div id="song3" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden c"></span>
-                    <span class="song-video hidden c"></span>
-        </div>
-		 <!------------------------------song4----------------------->
-		 <div id="song4" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden d"></span>
-                    <span class="song-video hidden d"></span>
-        </div>
-		 <!------------------------------song5----------------------->
-		 <div id="song5" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden e"></span>
-                    <span class="song-video hidden e"></span>
-        </div>
-		 <!------------------------------song6----------------------->
-        <div id="song6" class="song hvr-grow">
-          <span class="song-name"> </span>
-          <span class="song-artist"> </span>
-          <span class="song-album"> </span>
-          <span class="song-length"> </span>
-		  <span class="song-lyrics hidden f"></span>
-                    <span class="song-video hidden f"></span>
-        </div>
-      </div>
-
-	  <div>
-                <audio id="all" src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
-                <span class="mk">Play All: </span>
-                <i class="fa fa-play clickable playall_songs hvr-grow" aria-hidden="true"></i>
-        </div>
-
-
-	  
-	 
-<div class="container">
-  
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Replace Song</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Replace Song</h4>
-        </div>
-        <div class="modal-body">
-          
-            <div id="submit-song" class="right floated">
-                <div class="input-container">
-                    <input type="text" id="song-name-input" placeholder="Song Name">
+                    <!-----------------------------header------------------>
+                    <div> Title </div>
+                    <div > Artist </div>
+                    <div> Album </div>
+                    <div> Duration </div>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="song-artist-input" placeholder="Song Artist">
+                <div class="song-list">
+                    <!------------------------------song1----------------------->
+                    <div id="song1" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden a"></span>
+                        <span class="song-video hidden a"></span>
+                    </div>
+                    <!------------------------------song2----------------------->
+                    <div id="song2" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden b"></span>
+                        <span class="song-video hidden b"></span>
+                    </div>
+                    <!------------------------------song3----------------------->
+                    <div id="song3" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden c"></span>
+                        <span class="song-video hidden c"></span>
+                    </div>
+                    <!------------------------------song4----------------------->
+                    <div id="song4" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden d"></span>
+                        <span class="song-video hidden d"></span>
+                    </div>
+                    <!------------------------------song5----------------------->
+                    <div id="song5" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden e"></span>
+                        <span class="song-video hidden e"></span>
+                    </div>
+                    <!------------------------------song6----------------------->
+                    <div id="song6" class="song hvr-grow">
+                        <span class="song-name"> </span>
+                        <span class="song-artist"> </span>
+                        <span class="song-album"> </span>
+                        <span class="song-length"> </span>
+                        <span class="song-lyrics hidden f"></span>
+                        <span class="song-video hidden f"></span>
+                    </div>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="song-album-input" placeholder="Song Album">
+                <div>
+                    <audio id="all" src="https://dl.jatt.link/cdn8.jatt.link/0b987ea759b397e7b2cad915ff8d6346/fbkzv/3 Peg-(Mr-Jatt.com).mp3" type="audio/mpeg"></audio>
+                    <span class="mk">Play All: </span>
+                    <i class="fa fa-play clickable playall_songs hvr-grow" aria-hidden="true"></i>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="song-duration-input" placeholder="Song Duration">
+                <div class="container">
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Replace Song</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Replace Song</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="submit-song" class="right floated">
+                                        <div class="input-container">
+                                            <input type="text" id="song-name-input" placeholder="Song Name">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-artist-input" placeholder="Song Artist">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-album-input" placeholder="Song Album">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-duration-input" placeholder="Song Duration">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-url-input" placeholder="Song URL">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-video-input" placeholder="Song Video URL">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-lyrics-input" placeholder="Song Lyrics URL">
+                                        </div>
+                                        <div class="input-container">
+                                            <input type="text" id="song-image-input" placeholder="Song Image URL">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="replace-song" class="btn btn-default" data-dismiss="modal">Replace Song</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="song-url-input" placeholder="Song URL">
+                <!-------------------------------------details of current song playing----------------------------------------------------------------------->
+                <div class="w3-container current-song-wrapper">
+                    <img class="current-song-image hvr-float-shadow">
+                    <div>
+                        <p class="current-song-name hvr-grow"></p>
+                        <p class="current-song-album "></p>
+                    </div>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="song-video-input" placeholder="Song Video URL">
-                </div>
-                <div class="input-container">
-                    <input type="text" id="song-lyrics-input" placeholder="Song Lyrics URL">
-                </div>
-                <div class="input-container">
-                    <input type="text" id="song-image-input" placeholder="Song Image URL">
-                </div>
-                
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="replace-song" class="btn btn-default" data-dismiss="modal">Replace Song</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-
-	
-
-	  <!-------------------------------------details of current song playing----------------------------------------------------------------------->
-	   <div class="w3-container current-song-wrapper">
-    <img class="current-song-image hvr-float-shadow">
-    <div>
-      <p class="current-song-name hvr-grow"></p>
-      <p class="current-song-album "></p>
-    </div>
-  </div>
             </section>
-
-			<!----------------------------------------------------play pause next perivous loop shuffle volume mute button and progress bar---------------------------------->
-
+            <!----------------------------------------------------play pause next perivous loop shuffle volume mute button and progress bar---------------------------------->
             <footer>
-			<div class="w3-container controls">
-              <div class="player-buttons">
-                <i class="fa fa-random clickable disabled hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-step-backward back-icon clickable  hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-step-forward next-icon clickable hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-repeat disabled clickable hvr-grow-shadow" aria-hidden="true"></i>
-                <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" ></i>
-				<input id="volumeslider" type="range" min="0" max ="100" value="100" step="1" class="volume">
-				 
-              </div>
-
+                <div class="w3-container controls">
+                    <div class="player-buttons">
+                        <i class="fa fa-random clickable disabled hvr-grow-shadow" aria-hidden="true"></i>
+                        <i class="fa fa-step-backward back-icon clickable  hvr-grow-shadow" aria-hidden="true"></i>
+                        <i class="fa fa-play clickable play-icon hvr-grow-shadow" aria-hidden="true"></i>
+                        <i class="fa fa-step-forward next-icon clickable hvr-grow-shadow" aria-hidden="true"></i>
+                        <i class="fa fa-repeat disabled clickable hvr-grow-shadow" aria-hidden="true"></i>
+                        <i class="fa fa-volume-up clickable hvr-grow-shadow" aria-hidden="true" ></i>
+                        <input id="volumeslider" type="range" min="0" max ="100" value="100" step="1" class="volume">
+                    </div>
                     <div class="progress-wrapper">
                         <span class="time-elapsed"> </span>
                         <div class="player-progress">
@@ -228,26 +192,17 @@
                         </div>
                         <span class="song-duration"></span>
                     </div>
-					</div>
-
-
+                </div>
             </footer>
-
-    </div>
-
-	  <!--------------------- external javascript linking --------------------->
-    <script src="jquery.js">
-    </script>
-	 <script src="main.js"></script>
-	 	 <script src="rs.speech.js"></script>
-        
+        </div>
+        <!--------------------- external javascript linking --------------------->
+        <script src="jquery.js"></script>
+        <script src="main.js"></script>
+        <script src="rs.speech.js"></script>
         <script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#loading').fadeOut(3300);
-});
-</script>
-
-
-</body>
-
+            jQuery(document).ready(function() {
+                jQuery('#loading').fadeOut(3300);
+            });
+        </script>
+    </body>
 </html>
