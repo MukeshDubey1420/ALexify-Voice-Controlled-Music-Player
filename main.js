@@ -59,7 +59,7 @@ function callWit(final_transcript) {
         success: function(response) {
             console.log("success!", response);
             if (response.entities.intent[0].value == 'play') {
-                if (response.entities.hasOwnProperty('local_search_query')) {
+                if (response.entities.hasOwnProperty('search_query')) {
                     var songName = response.entities.search_query[0].value;
                     var matchIndex = 0;
                     for (var i = 0; i < songs.length; i++) {
