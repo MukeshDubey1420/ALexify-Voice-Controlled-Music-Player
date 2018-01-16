@@ -372,7 +372,7 @@ $('.total-songs').text("Songs: " + songs.length);
 
 function fetchSongs() {
     $.ajax({
-        'url': 'https://jsonbin.io/b/5a34d649621bb9383099987d',
+        'url': 'http://www.json-generator.com/api/json/get/bQnfbrvtua?indent=4',
         'dataType': 'json',
         'method': 'GET',
         'success': function(responseData) {
