@@ -1,4 +1,4 @@
-var recognition = new webkitSpeechRecognition();
+﻿var recognition = new webkitSpeechRecognition();
 recognition.lang = 'en-US';
 
 
@@ -372,7 +372,7 @@ $('.total-songs').text("Songs: " + songs.length);
 
 function fetchSongs() {
     $.ajax({
-        'url': 'https://jsonblob.com/24b973f6-fb48-11e7-80f6-17519f388cba',
+        'url': 'https://raw.githubusercontent.com/MukeshDubey1420/Reference-Api/master/Api.json',
         'dataType': 'json',
         'method': 'GET',
         'success': function(responseData) {
